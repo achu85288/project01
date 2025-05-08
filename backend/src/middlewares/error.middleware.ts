@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { ApiError } from './libs/ApiError.js';
+import { ApiError } from '@/libs/ApiError';
 
 type ErrorResponse = {
   success: false;
