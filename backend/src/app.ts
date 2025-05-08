@@ -10,8 +10,7 @@ import http from "http";
 import morgan from "morgan";
 import authRouter from "@/routes/auth.route";
 
-const app: Application = express();
-const PORT = process.env.PORT || 7000;
+const app: Application = express(); 
 
 // Middleware configuration
 const corsOptions = {
@@ -26,7 +25,7 @@ app.use(express.json({ limit: "16kb" }));
 app.use(express.urlencoded({ extended: true, limit: "16kb" }));
 app.use(express.static("public"));
 app.use(cookieParser());
-app.use(morgan("dev")); // Add logging middleware
+app.use(morgan("dev"));  
 
 // Session middleware
 app.use(session({
@@ -57,15 +56,6 @@ app.use(ErrorHandler);
 
 // Create HTTP server
 const server = http.createServer(app);
-
-// Start the server if this module is run directly
-if (require.main === module) {
-    server.listen(PORT, () => {
-        console.log(`Server running on http://localhost:${PORT}`);
-    });
-}
-
-app.use(ErrorHandler);
 
 app.use(ErrorHandler);
 
